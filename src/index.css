@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+  ::selection {
+    @apply bg-indigo-500/20 text-indigo-950;
+  }
+}
+
+@layer utilities {
+  .bg-canvas-gradient {
+    background-color: #F8FAFC;
+    background-image: 
+      radial-gradient(at 10% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+      radial-gradient(at 90% 0%, rgba(56, 189, 248, 0.05) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(241, 245, 249, 0.8) 0px, transparent 50%);
+  }
+
+  .bg-sidebar-gradient {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 55%, #F1F5F9 100%);
+  }
+
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 45%, #3B82F6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #6366F1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .card-gradient-hover {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-gradient-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.08), 0 4px 16px -2px rgba(99, 102, 241, 0.06);
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) both;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Minimal unobtrusive scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
+}
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.5);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
